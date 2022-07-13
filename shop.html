@@ -59,7 +59,7 @@
             <a href="index.html" class="navbar-brand"><span class="fw-bold text-uppercase text-dark">Shopaholic</span></a>
             <!-- navbar-toggler -->
 
-            <button class="navbar-toggler navbar-toggler-end collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            <a href="#!" class="navbar-toggler navbar-toggler-end collapsed" id="navbar-toggler"><span class="navbar-toggler-icon"></span></a>
             
             <div class="navbar-collapse collapse">
               <!-- navbar-nav -->
@@ -78,9 +78,9 @@
               </ul>
               <ul class="navbar-nav ms-auto">               
                 <li class="nav-item">
-                  <a href="cart.html" class="nav-link"><i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small class="text-gray fw-normal">(2)</small></a>
+                  <a href="cart.html" class="nav-link"><i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small class="text-gray fw-normal">(<span id="shopping-cart-value">0</span>)</small></a>
                 </li>
-                <li class="nav-item"><a href="#!" class="nav-link"><i class="far fa-heart me-1"></i><small class="text-gray fw-normal">(0)</small></a>
+                <li class="nav-item"><a href="#!" class="nav-link"><i class="far fa-heart me-1"></i><small class="text-gray fw-normal">(<span id="wish-list-value">0</span>)</small></a>
                 </li>
                 <li class="nav-item"><a href="#login" class="nav-link"><i class="fas fa-user me-1 text-gray fw-normal"></i>Login</a>
                 </li>
@@ -270,8 +270,8 @@
                         <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-1.37a0a89c.jpg" alt="..."></a>
                         <div class="product-overlay">
                           <ul class="mb-0 list-inline">
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
-                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark add-to-wish-list" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark add-to-cart" href="#!">Add to cart</a></li>
                             <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
                           </ul>
                         </div>
@@ -524,12 +524,7 @@
       </footer>
 
       
-      <!-- JavaScript files-->
-      <script type="text/javascript">
-        document.querySelector('.navbar-toggler').addEventListener('click', function(){
-          document.querySelector('.collapse').classList.toggle('show');
-        });
-      </script>
+      
       <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
 
       <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
@@ -610,6 +605,11 @@
           </div>
         </div>
       </div>
+
+      <!-- JavaScript files-->
+      <script src="js/main.js">
+        
+      </script>
 </body>
 
 </html>
