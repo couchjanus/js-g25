@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shopaholic | Shoppng Cart project</title>
+    <meta name="description" content="Shopaholic - Shoppng Cart project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="icons/favicon.png">
+    <!-- Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+    <div class="d-none">
+      <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="delivery-time-1">
+          <title>Delivery Time</title>
+          <desc>A line styled icon from Orion Icon Library.</desc>
+          <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" d="M62 46v-5l-8-7h-8" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <circle data-name="layer2" cx="24" cy="54" r="4" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <circle data-name="layer2" cx="54" cy="54" r="4" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" d="M50 54H28m-8 0h-4v-8h46v8h-4M24.5 24H46v22m-30 0V29.8M2 38h6m-2 8h2" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <circle data-name="layer1" cx="14" cy="18" r="12" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M14 12v8h6" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="helpline-24h-1">
+          <title>Helpline 24h</title>
+          <desc>A line styled icon from Orion Icon Library.</desc>
+          <path data-name="layer2" d="M52.3 48.8c1.2.8 3 1.9 2.7 4.3S51 62 43 62s-17.7-6.3-26.2-14.8S2 28.9 2 21 9 9.3 10.9 9s3.6 1.5 4.3 2.7l6 9.2a4.3 4.3 0 0 1-1.1 5.8c-2.6 2.1-6.8 4.6 2.9 14.3s12.3 5.4 14.3 2.9a4.3 4.3 0 0 1 5.8-1.1z" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M54 2l-6 14h14m-4-6v12m-14 0H32l8.5-10v-.2A6 6 0 0 0 32 3.6" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        </symbol>
+
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="label-tag-1">
+          <title>Label Tag</title>
+          <desc>A line styled icon from Orion Icon Library.</desc>
+          <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" d="M25.6 61L3 38.4 38.4 3l21.2 1.4L61 25.6 25.6 61z" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <circle data-name="layer2" cx="48" cy="15" r="4" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M31.3 21.4l11.3 11.3m-22.6 0l8.5 8.5M25.6 27l5.7 5.7" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        </symbol>
+
+      </svg>
+    </div>
+    <!-- page-holder -->
+    <div>
+      <!-- navbar-->
+      <header class="bg-white">
+        <!-- container -->
+        <div class="container px-lg-3">
+          <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
+            <!-- navbar-brand -->
+            <a href="index.html" class="navbar-brand"><span class="fw-bold text-uppercase text-dark">Shopaholic</span></a>
+            <!-- navbar-toggler -->
+
+            <button class="navbar-toggler navbar-toggler-end collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            
+            <div class="navbar-collapse collapse">
+              <!-- navbar-nav -->
+              <ul class="navbar-nav me-auto">
+                <!-- nav-item -->
+                <li class="nav-item">
+                  <!-- nav-link-->
+                  <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <!-- Link--><a href="shop.html" class="nav-link">Shop</a>
+                </li>
+                <li>
+                  <!-- Link--><a href="contact.html" class="nav-link">Contact</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav ms-auto">               
+                <li class="nav-item">
+                  <a href="cart.html" class="nav-link active"><i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small class="text-gray fw-normal">(2)</small></a>
+                </li>
+                <li class="nav-item"><a href="#!" class="nav-link"><i class="far fa-heart me-1"></i><small class="text-gray fw-normal">(0)</small></a>
+                </li>
+                <li class="nav-item"><a href="#!" class="nav-link"><i class="fas fa-user me-1 text-gray fw-normal"></i>Login</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      <!--  Modal -->
+      
+      <!-- HERO SECTION-->
+      <!-- container -->
+      <div class="container">
+        <!-- HERO SECTION-->
+        <section class="py-5 bg-light">
+          <div class="container">
+            <div class="row px-4 px-lg-5 py-lg-4 align-items-center">
+              <div class="col-lg-6">
+                <h1 class="h2 text-uppercase mb-0">Cart</h1>
+              </div>
+              
+            </div>
+          </div>
+        </section>
+
+        <section class="py-5">
+          <h2 class="h5 text-uppercase mb-4">Shopping cart</h2>
+          <div class="row">
+            <div class="col-lg-8 mb-4 mb-lg-0">
+              <!-- CART TABLE-->
+              <div class="table-responsive mb-4">
+                <table class="table text-nowrap">
+                  <thead class="bg-light">
+                    <tr>
+                      <th class="border-0 p-3" scope="col"> <strong class="text-sm text-uppercase">Product</strong></th>
+                      <th class="border-0 p-3" scope="col"> <strong class="text-sm text-uppercase">Price</strong></th>
+                      <th class="border-0 p-3" scope="col"> <strong class="text-sm text-uppercase">Quantity</strong></th>
+                      <th class="border-0 p-3" scope="col"> <strong class="text-sm text-uppercase">Total</strong></th>
+                      <th class="border-0 p-3" scope="col"> <strong class="text-sm text-uppercase"></strong></th>
+                    </tr>
+                  </thead>
+                  <tbody class="border-0">
+                    <tr>
+                      <th class="ps-0 py-3 border-light" scope="row">
+                        <div class="d-flex align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-detail-3.4edd674c.jpg" alt="..." width="70"></a>
+                          <div class="ms-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">Red digital smartwatch</a></strong></div>
+                        </div>
+                      </th>
+                      <td class="p-3 align-middle border-light">
+                        <p class="mb-0 small">$250</p>
+                      </td>
+                      <td class="p-3 align-middle border-light">
+                        <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">Quantity</span>
+                          <div class="quantity">
+                            <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
+                            <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="1">
+                            <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-3 align-middle border-light">
+                        <p class="mb-0 small">$250</p>
+                      </td>
+                      <td class="p-3 align-middle border-light"><a class="reset-anchor" href="#!"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+                    </tr>
+                    <tr>
+                      <th class="ps-0 py-3 border-0" scope="row">
+                        <div class="d-flex align-items-center"><a class="reset-anchor d-block animsition-link" href="detail.html"><img src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-detail-2.62056b28.jpg" alt="..." width="70"></a>
+                          <div class="ms-3"><strong class="h6"><a class="reset-anchor animsition-link" href="detail.html">Apple watch</a></strong></div>
+                        </div>
+                      </th>
+                      <td class="p-3 align-middle border-0">
+                        <p class="mb-0 small">$250</p>
+                      </td>
+                      <td class="p-3 align-middle border-0">
+                        <div class="border d-flex align-items-center justify-content-between px-3"><span class="small text-uppercase text-gray headings-font-family">Quantity</span>
+                          <div class="quantity">
+                            <button class="dec-btn p-0"><i class="fas fa-caret-left"></i></button>
+                            <input class="form-control form-control-sm border-0 shadow-0 p-0" type="text" value="1">
+                            <button class="inc-btn p-0"><i class="fas fa-caret-right"></i></button>
+                          </div>
+                        </div>
+                      </td>
+                      <td class="p-3 align-middle border-0">
+                        <p class="mb-0 small">$250</p>
+                      </td>
+                      <td class="p-3 align-middle border-0"><a class="reset-anchor" href="#!"><i class="fas fa-trash-alt small text-muted"></i></a></td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+              <!-- CART NAV-->
+              <div class="bg-light px-4 py-3">
+                <div class="row align-items-center text-center">
+                  <div class="col-md-6 mb-3 mb-md-0 text-md-start"><a class="btn btn-link p-0 text-dark btn-sm" href="shop.html"><i class="fas fa-long-arrow-alt-left me-2"> </i>Continue shopping</a></div>
+                  <div class="col-md-6 text-md-end"><a class="btn btn-outline-dark btn-sm" href="checkout.html">Procceed to checkout<i class="fas fa-long-arrow-alt-right ms-2"></i></a></div>
+                </div>
+              </div>
+            </div>
+            <!-- ORDER TOTAL-->
+            <div class="col-lg-4">
+              <div class="card border-0 rounded-0 p-lg-4 bg-light">
+                <div class="card-body">
+                  <h5 class="text-uppercase mb-4">Cart total</h5>
+                  <ul class="list-unstyled mb-0">
+                    <li class="d-flex align-items-center justify-content-between"><strong class="text-uppercase small font-weight-bold">Subtotal</strong><span class="text-muted small">$250</span></li>
+                    <li class="border-bottom my-2"></li>
+                    <li class="d-flex align-items-center justify-content-between mb-4"><strong class="text-uppercase small font-weight-bold">Total</strong><span>$250</span></li>
+                    <li>
+                      <form action="#">
+                        <div class="input-group mb-0">
+                          <input class="form-control" type="text" placeholder="Enter your coupon">
+                          <button class="btn btn-dark btn-sm w-100" type="submit"> <i class="fas fa-gift me-2"></i>Apply coupon</button>
+                        </div>
+                      </form>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- footer -->
+      <footer class="bg-dark text-white">
+        <div class="container py-4">
+          <div class="row py-5">
+            <div class="col-md-4 mb-3 mb-md-0">
+              <h6 class="text-uppercase mb-3">Customer services</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a class="footer-link" href="#!">Help &amp; Contact Us</a></li>
+                <li><a class="footer-link" href="#!">Returns &amp; Refunds</a></li>
+                <li><a class="footer-link" href="#!">Online Stores</a></li>
+                <li><a class="footer-link" href="#!">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+              <h6 class="text-uppercase mb-3">Company</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a class="footer-link" href="#!">What We Do</a></li>
+                <li><a class="footer-link" href="#!">Available Services</a></li>
+                <li><a class="footer-link" href="#!">Latest Posts</a></li>
+                <li><a class="footer-link" href="#!">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h6 class="text-uppercase mb-3">Social media</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a class="footer-link" href="https://www.twitter.com" target="_blank" title="Twitter" rel="nofollow"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a class="footer-link" href="https://www.instagram.com" target="_blank" title="Instagram" rel="nofollow"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a class="footer-link" href="https://www.facebook.com" target="_blank" title="Facebook" rel="nofollow"><i class="fab fa-facebook"></i> Facebook</a></li>
+              </ul>
+            </div>
+
+
+          </div>
+          <div class="border-top pt-4" style="border-color: #1d1d1d !important">
+            <div class="row">
+              <div class="col-md-6 text-center text-md-start">
+                <p class="small text-muted mb-0">© 2022 All rights reserved.</p>
+              </div>
+              <div class="col-md-6 text-center text-md-end">
+                <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor" href="https://bootstrapious.com/p/boutique-bootstrap-e-commerce-template">Bootstrapious</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      
+      <!-- JavaScript files-->
+      <script type="text/javascript">
+        document.querySelector('.navbar-toggler').addEventListener('click', function(){
+          document.querySelector('.collapse').classList.toggle('show');
+        });
+      </script>
+      <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,615 @@
+<!DOCTYPE html>
+
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Shopaholic | Shoppng Cart project</title>
+    <meta name="description" content="Shopaholic - Shoppng Cart project">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="all,follow">
+
+    <!-- Favicon-->
+    <link rel="shortcut icon" href="icons/favicon.png">
+    <!-- Google fonts-->
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Libre+Franklin:wght@300;400;700&amp;display=swap">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Martel+Sans:wght@300;400;800&amp;display=swap">
+
+    <link rel="stylesheet" href="css/styles.css">
+
+  </head>
+  <body>
+    <div class="d-none">
+      <svg width="0" height="0" class="hidden">
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="delivery-time-1">
+          <title>Delivery Time</title>
+          <desc>A line styled icon from Orion Icon Library.</desc>
+          <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" d="M62 46v-5l-8-7h-8" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <circle data-name="layer2" cx="24" cy="54" r="4" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <circle data-name="layer2" cx="54" cy="54" r="4" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" d="M50 54H28m-8 0h-4v-8h46v8h-4M24.5 24H46v22m-30 0V29.8M2 38h6m-2 8h2" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <circle data-name="layer1" cx="14" cy="18" r="12" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M14 12v8h6" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        </symbol>
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="helpline-24h-1">
+          <title>Helpline 24h</title>
+          <desc>A line styled icon from Orion Icon Library.</desc>
+          <path data-name="layer2" d="M52.3 48.8c1.2.8 3 1.9 2.7 4.3S51 62 43 62s-17.7-6.3-26.2-14.8S2 28.9 2 21 9 9.3 10.9 9s3.6 1.5 4.3 2.7l6 9.2a4.3 4.3 0 0 1-1.1 5.8c-2.6 2.1-6.8 4.6 2.9 14.3s12.3 5.4 14.3 2.9a4.3 4.3 0 0 1 5.8-1.1z" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M54 2l-6 14h14m-4-6v12m-14 0H32l8.5-10v-.2A6 6 0 0 0 32 3.6" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        </symbol>
+
+        <symbol xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" id="label-tag-1">
+          <title>Label Tag</title>
+          <desc>A line styled icon from Orion Icon Library.</desc>
+          <path data-name="layer2" fill="none" stroke="#202020" stroke-miterlimit="10" d="M25.6 61L3 38.4 38.4 3l21.2 1.4L61 25.6 25.6 61z" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+          <circle data-name="layer2" cx="48" cy="15" r="4" fill="none" stroke="#202020" stroke-miterlimit="10" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></circle>
+          <path data-name="layer1" fill="none" stroke="#202020" stroke-miterlimit="10" d="M31.3 21.4l11.3 11.3m-22.6 0l8.5 8.5M25.6 27l5.7 5.7" stroke-linejoin="round" stroke-linecap="round" style="stroke:var(--layer1, #202020)"></path>
+        </symbol>
+
+      </svg>
+    </div>
+    <!-- page-holder -->
+    <div>
+      <!-- navbar-->
+      <header class="bg-white">
+        <!-- container -->
+        <div class="container px-lg-3">
+          <nav class="navbar navbar-expand-lg navbar-light py-3 px-lg-0">
+            <!-- navbar-brand -->
+            <a href="index.html" class="navbar-brand"><span class="fw-bold text-uppercase text-dark">Shopaholic</span></a>
+            <!-- navbar-toggler -->
+
+            <button class="navbar-toggler navbar-toggler-end collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="navbar-toggler-icon"></span></button>
+            
+            <div class="navbar-collapse collapse">
+              <!-- navbar-nav -->
+              <ul class="navbar-nav me-auto">
+                <!-- nav-item -->
+                <li class="nav-item">
+                  <!-- nav-link-->
+                  <a href="index.html" class="nav-link">Home</a>
+                </li>
+                <li class="nav-item">
+                  <!-- Link--><a href="shop.html" class="nav-link active">Shop</a>
+                </li>
+                <li>
+                  <!-- Link--><a href="contact.html" class="nav-link">Contact</a>
+                </li>
+              </ul>
+              <ul class="navbar-nav ms-auto">               
+                <li class="nav-item">
+                  <a href="cart.html" class="nav-link"><i class="fas fa-dolly-flatbed me-1 text-gray"></i>Cart<small class="text-gray fw-normal">(2)</small></a>
+                </li>
+                <li class="nav-item"><a href="#!" class="nav-link"><i class="far fa-heart me-1"></i><small class="text-gray fw-normal">(0)</small></a>
+                </li>
+                <li class="nav-item"><a href="#login" class="nav-link"><i class="fas fa-user me-1 text-gray fw-normal"></i>Login</a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      </header>
+      
+
+      
+      
+      <!-- HERO SECTION-->
+      <!-- container -->
+      <div class="container">
+        <!-- HERO SECTION-->
+        <section class="py-5 bg-light">
+          <div class="container">
+            <header class="text-center">
+            <p class="text-muted text-uppercase mb-1">Carefully created collections</p>
+            <h2 class="h5 text-uppercase mb-4">Browse our categories</h2>
+            </header>
+            
+            <div class="carousel">
+<div class="slider">
+  <div class="slide-track">
+    <div class="slide">
+      <img src="images/01.jpg" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/02.jpg" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/03.jpg" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/04.jpg" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/05.jpg" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/06.jpg" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/07.jpg" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/1.jpg" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/2.jpg" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/3.jpg" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/4.jpg" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/5.jpg" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/6.jpg" height="100" width="250" alt="" />
+    </div>
+    <div class="slide">
+      <img src="images/7.jpg" height="100" width="250" alt="" />
+    </div>
+  </div>
+</div>
+</div>
+          </div>
+        </section>
+        
+        <section class="py-5">
+          
+          <div class="container p-0">
+            
+            <div class="row">
+              
+              <!-- SHOP SIDEBAR-->
+              <div class="col-lg-3 order-2 order-lg-1">
+                <h5 class="text-uppercase mb-4">Categories</h5>
+                
+                <div class="py-2 px-4 bg-dark text-white mb-3"><strong class="small text-uppercase fw-bold">Fashion &amp; Acc</strong></div>
+                <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Women's T-Shirts</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Men's T-Shirts</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Dresses</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Novelty socks</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Women's sunglasses</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Men's sunglasses</a></li>
+                </ul>
+                
+                <div class="py-2 px-4 bg-light mb-3"><strong class="small text-uppercase fw-bold">Health &amp; Beauty</strong></div>
+                <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal">
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Shavers</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">bags</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Cosmetic</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Nail Art</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Skin Masks &amp; Peels</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Korean cosmetics</a></li>
+                </ul>
+                
+                <div class="py-2 px-4 bg-light mb-3"><strong class="small text-uppercase fw-bold">Electronics</strong></div>
+                <ul class="list-unstyled small text-muted ps-lg-4 font-weight-normal mb-5">
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Electronics</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">USB Flash drives</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Headphones</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Portable speakers</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Cell Phone bluetooth headsets</a></li>
+                  <li class="mb-2"><a class="reset-anchor" href="#!">Keyboards</a></li>
+                </ul>
+                
+
+                
+              
+                <h6 class="text-uppercase mb-3">Show only</h6>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="checkbox_1">
+                  <label class="form-check-label" for="checkbox_1">Returns Accepted</label>
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="checkbox_2">
+                  <label class="form-check-label" for="checkbox_2">Returns Accepted</label>
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="checkbox_3">
+                  <label class="form-check-label" for="checkbox_3">Completed Items</label>
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="checkbox_4">
+                  <label class="form-check-label" for="checkbox_4">Sold Items</label>
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="checkbox" id="checkbox_5">
+                  <label class="form-check-label" for="checkbox_5">Deals &amp; Savings</label>
+                </div>
+                <div class="form-check mb-4">
+                  <input class="form-check-input" type="checkbox" id="checkbox_6">
+                  <label class="form-check-label" for="checkbox_6">Authorized Seller</label>
+                </div>
+                <h6 class="text-uppercase mb-3">Buying format</h6>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="radio" name="customRadio" id="radio_1">
+                  <label class="form-check-label" for="radio_1">All Listings</label>
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="radio" name="customRadio" id="radio_2">
+                  <label class="form-check-label" for="radio_2">Best Offer</label>
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="radio" name="customRadio" id="radio_3">
+                  <label class="form-check-label" for="radio_3">Auction</label>
+                </div>
+                <div class="form-check mb-1">
+                  <input class="form-check-input" type="radio" name="customRadio" id="radio_4">
+                  <label class="form-check-label" for="radio_4">Buy It Now</label>
+                </div>
+              </div>
+              
+              <!-- SHOP LISTING-->
+              <div class="col-lg-9 order-1 order-lg-2 mb-5 mb-lg-0">
+                <div class="row mb-3 align-items-center">
+                  
+                  <div class="col-lg-6 mb-2 mb-lg-0">
+                    <p class="text-sm text-muted mb-0">Showing 1–12 of 53 results</p>
+                  </div>
+                  
+                  <div class="col-lg-6">
+                    <select class="form-select form-select-lg mb-2 text-sm text-muted">
+                      <option selected>Sort By</option>
+                      <option value="1">One</option>
+                      <option value="2">Two</option>
+                      <option value="3">Three</option>
+                    </select>
+                    
+
+                  </div>
+                </div>
+                
+                <div class="row">
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-1.37a0a89c.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Kui Ye Chen’s AirPods</a></h6>
+                      <p class="small text-muted">$250</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-2.1adefbd6.jpg" alt="..."></a>
+                        
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Air Jordan 12 gym red</a></h6>
+                      <p class="small text-muted">$300</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-primary">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-3.e4af5b82.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Cyan cotton t-shirt</a></h6>
+                      <p class="small text-muted">$25</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-4.719c3a60.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Timex Unisex Originals</a></h6>
+                      <p class="small text-muted">$351</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-info">Sale</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-5.aff049a7.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Red digital smartwatch</a></h6>
+                      <p class="small text-muted">$250</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-6.c4210d28.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Nike air max 95</a></h6>
+                      <p class="small text-muted">$300</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-7.1f4b5e9b.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Joemalone Women prefume</a></h6>
+                      <p class="small text-muted">$25</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-8.d7432880.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Apple Watch</a></h6>
+                      <p class="small text-muted">$351</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-danger">Sold</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-9.7bc0d11d.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Men silver Byron Watch</a></h6>
+                      <p class="small text-muted">$351</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-primary">New</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-10.a2749b0f.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Ploaroid one step camera</a></h6>
+                      <p class="small text-muted">$351</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-11.0e27b424.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Gray Nike running shoes</a></h6>
+                      <p class="small text-muted">$351</p>
+                    </div>
+                  </div>
+                  <!-- PRODUCT-->
+                  <div class="col-lg-4 col-sm-6">
+                    <div class="product text-center">
+                      <div class="mb-3 position-relative">
+                        <div class="badge text-white bg-"></div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-12.1f20a117.jpg" alt="..."></a>
+                        <div class="product-overlay">
+                          <ul class="mb-0 list-inline">
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark" href="#!"><i class="far fa-heart"></i></a></li>
+                            <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-dark" href="cart.html">Add to cart</a></li>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                          </ul>
+                        </div>
+                      </div>
+                      <h6> <a class="reset-anchor" href="detail.html">Black DSLR lense</a></h6>
+                      <p class="small text-muted">$351</p>
+                    </div>
+                  </div>
+                </div>
+                <!-- PAGINATION-->
+                
+              </div>
+            </div>
+          </div>
+        </section>
+      </div>
+
+      <!-- footer -->
+      <footer class="bg-dark text-white">
+        <div class="container py-4">
+          <div class="row py-5">
+            <div class="col-md-4 mb-3 mb-md-0">
+              <h6 class="text-uppercase mb-3">Customer services</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a class="footer-link" href="#!">Help &amp; Contact Us</a></li>
+                <li><a class="footer-link" href="#!">Returns &amp; Refunds</a></li>
+                <li><a class="footer-link" href="#!">Online Stores</a></li>
+                <li><a class="footer-link" href="#!">Terms &amp; Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4 mb-3 mb-md-0">
+              <h6 class="text-uppercase mb-3">Company</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a class="footer-link" href="#!">What We Do</a></li>
+                <li><a class="footer-link" href="#!">Available Services</a></li>
+                <li><a class="footer-link" href="#!">Latest Posts</a></li>
+                <li><a class="footer-link" href="#!">FAQs</a></li>
+              </ul>
+            </div>
+            <div class="col-md-4">
+              <h6 class="text-uppercase mb-3">Social media</h6>
+              <ul class="list-unstyled mb-0">
+                <li><a class="footer-link" href="https://www.twitter.com" target="_blank" title="Twitter" rel="nofollow"><i class="fab fa-twitter"></i> Twitter</a></li>
+                <li><a class="footer-link" href="https://www.instagram.com" target="_blank" title="Instagram" rel="nofollow"><i class="fab fa-instagram"></i> Instagram</a></li>
+                <li><a class="footer-link" href="https://www.facebook.com" target="_blank" title="Facebook" rel="nofollow"><i class="fab fa-facebook"></i> Facebook</a></li>
+              </ul>
+            </div>
+
+
+          </div>
+          <div class="border-top pt-4" style="border-color: #1d1d1d !important">
+            <div class="row">
+              <div class="col-md-6 text-center text-md-start">
+                <p class="small text-muted mb-0">© 2022 All rights reserved.</p>
+              </div>
+              <div class="col-md-6 text-center text-md-end">
+                <p class="small text-muted mb-0">Template designed by <a class="text-white reset-anchor" href="https://bootstrapious.com/p/boutique-bootstrap-e-commerce-template">Bootstrapious</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+
+      
+      <!-- JavaScript files-->
+      <script type="text/javascript">
+        document.querySelector('.navbar-toggler').addEventListener('click', function(){
+          document.querySelector('.collapse').classList.toggle('show');
+        });
+      </script>
+      <!-- FontAwesome CSS - loading as last, so it doesn't block rendering-->
+
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css" integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    
+    </div>
+     
+
+     <!--  Modal -->
+      <div class="modal" id="productView" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="modal-content overflow-hidden border-0">
+            <a href="#" class="p-4 close btn-close"><i class="fas fa-times"></i></a>
+            
+            <div class="modal-body p-0">
+              <div class="row align-items-stretch">
+                <div class="col-lg-6 p-lg-0">
+                  <div class="bg-center bg-cover d-block h-100" style="background: url(images/product-1.jpg)">
+                  </div>
+                </div>
+                <div class="col-lg-6">
+                  <div class="p-4 my-md-4">
+                    <ul class="list-inline mb-2">
+                      <li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>
+                      <li class="list-inline-item m-0 1"><i class="fas fa-star small text-warning"></i></li>
+                      <li class="list-inline-item m-0 2"><i class="fas fa-star small text-warning"></i></li>
+                      <li class="list-inline-item m-0 3"><i class="fas fa-star small text-warning"></i></li>
+                      <li class="list-inline-item m-0 4"><i class="fas fa-star small text-warning"></i></li>
+                    </ul>
+                    <h2 class="h4">Red digital smartwatch</h2>
+                    <p class="text-muted">$250</p>
+                    <p class="text-sm mb-4">Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.</p>
+                    <div class="row align-items-stretch mb-4 gx-0">
+                      <div class="col-sm-7">
+                        <div class="border d-flex align-items-center justify-content-between py-1 px-3"><span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
+                          <div class="quantity">
+                            <button class="p-0"><i class="fas fa-caret-left"></i></button>
+                            <input class="form-control border-0 shadow-0 p-0" type="text" value="1">
+                            <button class="p-0"><i class="fas fa-caret-right"></i></button>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-sm-5"><a class="btn btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center px-0" href="cart.html">Add to cart</a></div>
+                    </div><a class="btn btn-link text-dark text-decoration-none p-0" href="#!"><i class="far fa-heart me-2"></i>Add to wish list</a>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+
+      <!-- login -->
+      <div class="modal" id="login" tabindex="-1">
+        <div class="modal-dialog">
+          <div class="form-signin">
+            <form>
+              <h1 class="h3 mb-3 fw-normal">Please sign in</h1>
+
+              <div class="form-floating">
+                <input type="email" class="form-control" id="floatingInput" placeholder="name@example.com">
+                <label for="floatingInput">Email address</label>
+              </div>
+              <div class="form-floating">
+                <input type="password" class="form-control" id="floatingPassword" placeholder="Password">
+                <label for="floatingPassword">Password</label>
+              </div>
+
+              <div class="checkbox mb-3">
+                <label>
+                  <input type="checkbox" value="remember-me"> Remember me
+                </label>
+              </div>
+              <button class="w-100 btn btn-lg btn-primary" type="submit">Sign in</button>
+              <a href="#" class="w-100 btn btn-lg btn-secondary close">Cansel</a>
+              <p class="mt-5 mb-3 text-muted">&copy; 2022</p>
+            </form>
+          </div>
+        </div>
+      </div>
+</body>
+
+</html>

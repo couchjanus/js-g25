@@ -57,7 +57,7 @@ var y = parseFloat(prompt("Enter b = ", '...'));
 // console.log('x = ', x);
 var op = prompt("Enter operation = ", '...');
 
-
+// == != > < >= <= === !==
 if (op == '+') {
     console.log('a + b = ', x + y);
     alert(x + y);

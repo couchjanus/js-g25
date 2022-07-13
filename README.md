@@ -1,1 +1,1 @@
-# js-g25
+# html-g25-demo
