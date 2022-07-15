@@ -940,9 +940,20 @@ a:not([href]):not([class]), a:not([href]):not([class]):hover {
 }
 
 .bg-primary {
+    background-color: indigo !important;
+}
+
+.bg-new {
+    background-color: green !important;
+}
+
+.bg-sale {
     background-color: red !important;
 }
 
+.bg-sold {
+    background-color: gold !important;
+}
 .product-view {
     min-height: 20rem;
 }
