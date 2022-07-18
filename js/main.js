@@ -1,159 +1,35 @@
 "use strict";
 
-let products = [
-    {
-        badge:  {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-1.37a0a89c.jpg",
-        title: "Kui Ye Chen’s AirPods",
-        price: 250,
-
-    },
-    {
-        badge:  {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-2.1adefbd6.jpg",
-        title: "Air Jordan 12 gym red",
-        price: 300,
-
-    },
-    {
-        badge: {
-            title: "New",
-            bg: "new"
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-3.e4af5b82.jpg",
-        title: "Cyan cotton t-shirt",
-        price: 30,
-
-    },
-    {
-        badge: {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-4.719c3a60.jpg",
-        title: "Timex Unisex Originals",
-        price: 350,
-
-    },  
-    {
-        badge: {
-            title: "Sale",
-            bg: "sale"
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-5.aff049a7.jpg",
-        title: "Red digital smartwatch",
-        price: 150,
-
-    },  
-    {
-        badge: {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-6.c4210d28.jpg",
-        title: "Nike air max 95",
-        price: 250,
-
-    },  
-    {
-        badge: {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-7.1f4b5e9b.jpg",
-        title: "Joemalone Women prefume",
-        price: 25,
-
-    },  
-    {
-        badge: {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-8.d7432880.jpg",
-        title: "Apple Watch",
-        price: 350,
-
-    },  
-    {
-        badge: {
-            title: "Sold",
-            bg: "sold"
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-9.7bc0d11d.jpg",
-        title: "Men silver Byron Watch",
-        price: 351,
-
-    },  
-    {
-        badge: {
-            title: "New",
-            bg: "new"
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-10.a2749b0f.jpg",
-        title: "Ploaroid one step camera",
-        price: 451,
-
-    },  
-
-    {
-        badge: {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-11.0e27b424.jpg",
-        title: "Gray Nike running shoes",
-        price: 151,
-
-    },  
-
-    {
-        badge: {
-            title: "",
-            bg: ""
-        },
-        image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-12.1f20a117.jpg",
-        title: "Black DSLR lense",
-        price: 51,
-
-    },  
-
-];
-
 const navbarToggler = document.getElementById('navbar-toggler');
 
-// console.log(navbarToggler);
-console.log(document.querySelector('.collapse'));
+const modalWindow = document.querySelector(".modal-window");
+const showCase = document.querySelector(".catalog");
+// console.log(document.querySelector('.collapse'));
 navbarToggler.addEventListener('click', function(){
     document.querySelector('.collapse').classList.toggle('show');
 });
 
-function productItemTemplate(product) {
-    return `<!-- PRODUCT-->
+let productItemTemplate = product =>
+    `<!-- PRODUCT-->
         <div class="col-lg-4 col-sm-6">
-                    <div class="product text-center">
-                      <div class="mb-3 position-relative">
-                        <div class="badge text-white bg-${product.badge.bg}">${product.badge.title}</div><a class="d-block" href="detail.html"><img class="img-fluid w-100" src="${product.image}" alt="${product.title}"></a>
-                        <div class="product-overlay">
-                          <ul class="mb-0 list-inline">
+            <div class="product text-center">
+                <div class="mb-3 position-relative">
+                    <div class="badge text-white bg-${product.badge.bg}">${product.badge.title}</div>
+                    <a class="d-block" href="detail.html"><img class="img-fluid w-100" src="${product.image}" alt="${product.title}"></a>
+                    <div class="product-overlay">
+                        <ul class="mb-0 list-inline btn-block" data-id="${product.id}" data-price="${product.price}">
                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark add-to-wish-list" href="#!"><i class="far fa-heart"></i></a></li>
                             <li class="list-inline-item m-0 p-0"><a class="btn btn-sm btn-outline-dark add-to-cart" href="#!">Add to cart</a></li>
-                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
-                          </ul>
-                        </div>
-                      </div>
-                      <h6> <a class="reset-anchor" href="detail.html">${product.title}</a></h6>
-                      <p class="small text-muted">$${product.price}</p>
+                            <li class="list-inline-item mr-0"><a class="btn btn-sm btn-outline-dark detail" href="#productView" data-bs-toggle="modal"><i class="fas fa-expand"></i></a></li>
+                        </ul>
                     </div>
-                  </div>
+                </div>
+                <h6> <a class="reset-anchor" href="detail.html">${product.title}</a></h6>
+                <p class="small text-muted">$${product.price}</p>
+            </div>
+        </div>
     `;
-}
+
 
 function populateProductList(products) {
     
@@ -166,21 +42,124 @@ function populateProductList(products) {
     return content;
 }
 
+let rating = stars => {
+    let result = "";
 
-// console.log(populateProductList(products));
+    for (let i=0; i<stars; i++) {
+        result += '<li class="list-inline-item m-0"><i class="fas fa-star small text-warning"></i></li>';
+    }
+
+    for (let i=0; i<5-stars; i++) {
+        result += '<li class="list-inline-item m-0"><i class="fas fa-star small"></i></li>';
+    }
+    return result;
+}
+
+let modalTemplate = product => `<div class="modal" id="productView" tabindex="-1">
+<div class="modal-dialog">
+  <div class="modal-content overflow-hidden border-0">
+    <a href="#" class="p-4 close btn-close"><i class="fas fa-times"></i></a>
+    
+    <div class="modal-body p-0">
+      <div class="row align-items-stretch">
+        <div class="col-lg-6 p-lg-0">
+          <div class="bg-center bg-cover d-block h-100" style="background: url(${product.image})">
+          </div>
+        </div>
+        <div class="col-lg-6">
+          <div class="p-4 my-md-4">
+            <ul class="list-inline mb-2">
+              ${rating(product.stars)}
+            </ul>
+            <h2 class="h4">${product.title}</h2>
+            <p class="text-muted">$${product.price}</p>
+            <p class="text-sm mb-4">${product.description}</p>
+            <div class="row align-items-stretch mb-4 gx-0">
+              <div class="col-sm-7">
+                <div class="border d-flex align-items-center justify-content-between py-1 px-3"><span class="small text-uppercase text-gray mr-4 no-select">Quantity</span>
+                  <div class="quantity">
+                    <i class="fas fa-caret-left btn p-0 dec-btn"></i>
+                    <input class="form-control border-0 shadow-0 p-0 quantity-result" type="text" value="1">
+                    <i class="fas fa-caret-right btn p-0 inc-btn"></i>
+                  </div>
+                </div>
+              </div>
+              <div class="col-sm-5"><a class="btn btn-dark btn-sm w-100 h-100 d-flex align-items-center justify-content-center px-0" href="cart.html">Add to cart</a></div>
+            </div><a class="btn btn-link text-dark text-decoration-none p-0" href="#!"><i class="far fa-heart me-2"></i>Add to wish list</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>`;
+
+
+function renderModal() {
+    
+    modalWindow.querySelector('.inc-btn').addEventListener('click', event => {
+        let val = event.target.previousElementSibling.value;
+        // console.log(event.target.previousElementSibling);
+        val++;
+        event.target.previousElementSibling.value = val;
+    });
+
+    modalWindow.querySelector('.dec-btn').addEventListener('click', event => {
+        let val = event.target.nextElementSibling.value;
+        if (val > 1) {
+            val--;
+        }
+       
+        event.target.nextElementSibling.value = val;
+    });
+}
+
+function toggleModal(param, product={}) {
+    if (modalWindow.innerHTML === '') {
+        modalWindow.innerHTML = modalTemplate(product);
+        renderModal();
+    } else {
+        modalWindow.innerHTML = '';
+    }
+    modalWindow.style.display = param;
+}
+
+// showCase
+
+function detailButton(products) {
+    let detailButtons = showCase.querySelectorAll(".detail");
+    detailButtons.forEach(button => {
+        
+        button.addEventListener('click', event => {
+            let productId = event.target.closest('.btn-block').dataset.id;
+            console.log(productId);
+            let product = products.find(product => product.id == productId);
+            toggleModal('block', product);
+            modalWindow.querySelector('.close').addEventListener('click', event => {
+                event.preventDefault();
+                toggleModal('none');
+            })
+        });
+    });
+}
+
+
+
 
 const shoppingCartValue = document.getElementById('shopping-cart-value');
 const wishListValue = document.getElementById('wish-list-value');
 
-
+console.log('products', products);
 document.querySelector(".catalog").innerHTML = populateProductList(products);
+
+// 
 
 let addToWishListButtons = document.querySelectorAll('.add-to-wish-list');
 let addToCartButtons = document.querySelectorAll('.add-to-cart');
-// console.log(addToWishListButtons);
+
 if (addToWishListButtons) {
     addToWishListButtons.forEach(function(element){
-        // console.log(element);
+        
         element.addEventListener('click', function() {
             wishListValue.textContent = +wishListValue.textContent + 1;
             wishListValue.classList.add('fw-bold');
@@ -199,6 +178,4 @@ if (addToCartButtons) {
     });
 }
 
-
-
-
+detailButton(products);
