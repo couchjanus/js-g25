@@ -19,7 +19,7 @@ let products = [
         },
         image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-2.1adefbd6.jpg",
         title: "Air Jordan 12 gym red",
-        price: 300,
+        price: 300.33,
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 0,
         id: 2,
