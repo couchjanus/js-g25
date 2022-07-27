@@ -11,6 +11,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 3,
         id: 1,
+        category: {
+            id: 1,
+            name: "Electronic"
+        }
     },
     {
         badge:  {
@@ -23,6 +27,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 0,
         id: 2,
+        category: {
+            id: 2,
+            name: "Bags"
+        }
 
     },
     {
@@ -36,6 +44,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 2,
         id: 3,
+        category: {
+            id: 3,
+            name: "T-Shirt"
+        }
     },
     {
         badge: {
@@ -48,6 +60,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 5,
         id: 4,
+        category: {
+            id: 4,
+            name: "Watches"
+        }
     },  
     {
         badge: {
@@ -60,6 +76,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 1,
         id: 5,
+        category: {
+            id: 1,
+            name: "Electronic"
+        }
     },  
     {
         badge: {
@@ -72,6 +92,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 5,
         id: 6,
+        category: {
+            id: 5,
+            name: "Shoes"
+        }
     },  
     {
         badge: {
@@ -84,6 +108,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 4,
         id: 7,
+        category: {
+            id: 6,
+            name: "Parphume"
+        }
     },  
     {
         badge: {
@@ -96,6 +124,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 5,
         id: 8,
+        category: {
+            id: 4,
+            name: "Watches"
+        }
     },  
     {
         badge: {
@@ -108,6 +140,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 3,
         id: 9,
+        category: {
+            id: 4,
+            name: "Watches"
+        }
     },  
     {
         badge: {
@@ -120,6 +156,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 0,
         id: 10,
+        category: {
+            id: 1,
+            name: "Electronic"
+        }
     },  
 
     {
@@ -133,6 +173,10 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 2,
         id: 11,
+        category: {
+            id: 5,
+            name: "Shoes"
+        }
     },  
 
     {
@@ -146,5 +190,9 @@ let products = [
         description: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. In ut ullamcorper leo, eget euismod orci. Cum sociis natoque penatibus et magnis dis parturient montes nascetur ridiculus mus. Vestibulum ultricies aliquam convallis.",
         stars: 1,
         id: 12,
+        category: {
+            id: 1,
+            name: "Electronic"
+        }
     },  
 ];

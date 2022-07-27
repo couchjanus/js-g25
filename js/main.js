@@ -7,7 +7,7 @@ const showCase = document.querySelector(".catalog");
 const shoppingCartValue = document.getElementById('shopping-cart-value');
 const wishListValue = document.getElementById('wish-list-value');
 const shoppingCartItems = document.querySelector(".shopping-cart-items");
-
+const categoriesList = document.querySelector(".categories-list");
 let cart = [];
 let wishlist = [];
 
@@ -325,9 +325,7 @@ function addToCartButton(cart) {
             let price = event.target.closest('.btn-block').dataset.price;
 
             addProductToCart({id: productId, price:price});
-
           
-           
         });
     });
 }
@@ -347,15 +345,106 @@ document.addEventListener("DOMContentLoaded", () => {
     });
 
     
+    function distinctCategories(products) {
+        let mapped = [...products.map(item => item.category)];
+        // console.log(mapped)
+        // let distinct = [];
+        // mapped.forEach(item => {
+        //     if(!(item.id in distinct)) distinct.push(item)
+        // });
+
+        // console.log(distinct)
+        let distinct = Object.values(mapped.reduce((item, {id, name}) => {
+            let key = `${id}_${name}`;
+            item[key] = item[key] || {id, name, count:0};
+            item[key].count++;
+            return item;
+        }, {}));
+        return distinct;
+    }
+
+
+    function categoryTemplate(category) {
+        return `
+        <li class="mb-2 d-flex justify-content-between">
+        <a class="reset-anchor category-item" href="#!" data-category="${category.name}" data-category-id="${category.id}">${category.name}</a>   
+        <span class="badge text-gray">${category.count}</span>
+        </li>
+        `;
+    }
+
+    function populateCategories(categories) {
+        document.querySelector(".all-categories").textContent = categories.length;
+        let result = "";
+        categories.forEach(item => result += categoryTemplate(item));
+        return result;
+    }
+
+function renderCategory(selector, products){
+    const categoriesAll = document.querySelector(".categories");
+    categoriesAll.addEventListener('click', () =>{ showCase.innerHTML = populateProductList(products)
+        addToCartButton(cart);
+        detailButton(products);
+        addToWishListButton(); 
+    });
+
+    
+    const categoryItems = document.querySelectorAll(selector);
+    categoryItems.forEach(item => item.addEventListener('click', e => {
+        e.preventDefault();
+
+        if (e.target.classList.contains('category-item')) {
+            const category = e.target.dataset.category;
+            const categoryFilter = items => items.filter(item => item.category.name.includes(category));
+            showCase.innerHTML = populateProductList(categoryFilter(products));
+
+        }else{
+            showCase.innerHTML = populateProductList(products);
+        }
+        addToCartButton(cart);
+        detailButton(products);
+        addToWishListButton(); 
+    })) 
+    
+}
+
+const carouselItemTemolate = data => `<div class="slide carousel-item">
+<a class="category-item" href="#!" data-category="${data.name}">
+<img src="images/0${data.id}.jpg" alt="" />
+<strong class="category-item category-item-title" data-category="${data.name}">${data.name}</strong>
+</a>
+</div>`;
+
+function makeCarousel(items) {
+    let res = "";
+    items.forEach(item => res += carouselItemTemolate(item));
+    res += res;
+    document.querySelector('.slide-track').innerHTML = res;
+}
+
+
+if (document.querySelector(".carousel")) {
+    let distingCategoryItems = distinctCategories(products);
+    makeCarousel(distingCategoryItems);
+    renderCategory('.carousel-item', products);
+
+}
     // console.log('products', products);
     if(showCase) {
-    
+        
+       
         showCase.innerHTML = populateProductList(products);
 
         addToCartButton(cart);
         detailButton(products);
         addToWishListButton();
     }
+    if (categoriesList) {
+        categoriesList.innerHTML = populateCategories(distinctCategories(products));
+        renderCategory(".categories-list", products);
+        
+    }
+
     if (shoppingCartItems) {
         shoppingCartItems.innerHTML = populateShoppingCart();
         setCartTotal(cart);

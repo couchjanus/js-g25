@@ -591,6 +591,13 @@ h6, .h6 {
     color: inherit;
     transition: all 0.3s;
 }
+
+.anchor {
+    color: inherit;
+    transition: all 0.3s;
+    text-decoration: none;
+}
+
 .reset-anchor:hover, .reset-anchor:focus {
     text-decoration: none;
 }
@@ -1495,4 +1502,29 @@ thead, tbody, tfoot, tr, td, th {
   margin-bottom: 10px;
   border-top-left-radius: 0;
   border-top-right-radius: 0;
+}
+
+
+.category-item {
+    display: block;
+    position: relative;
+}
+
+.category-item img{
+    transition: all .3s;
+}
+
+.category-item-title {
+    display: inline-block;
+    padding: .5rem 1rem;
+    color: #212529;
+    background-color: #fff;
+    font-size: .8rem;
+    text-transform: uppercase;
+    letter-spacing: 0.07rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.075);
 }
