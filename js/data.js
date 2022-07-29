@@ -2,8 +2,8 @@
 let products = [
     {
         badge:  {
-            title: "",
-            bg: ""
+            title: "Sold",
+            bg: "sold"
         },
         image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-1.37a0a89c.jpg",
         title: "Kui Ye Chen’s AirPods",
@@ -99,8 +99,8 @@ let products = [
     },  
     {
         badge: {
-            title: "",
-            bg: ""
+            title: "Sale",
+            bg: "sale"
         },
         image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-7.1f4b5e9b.jpg",
         title: "Joemalone Women prefume",
@@ -181,8 +181,8 @@ let products = [
 
     {
         badge: {
-            title: "",
-            bg: ""
+            title: "Sale",
+            bg: "sale"
         },
         image: "https://d19m59y37dris4.cloudfront.net/boutique/2-0/img/product-12.1f20a117.jpg",
         title: "Black DSLR lense",

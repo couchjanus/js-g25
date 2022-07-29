@@ -330,82 +330,62 @@ function addToCartButton(cart) {
     });
 }
 
-document.addEventListener("DOMContentLoaded", () => {
 
-    cart = Store.init('basket');
-    console.log(cart)
-    wishlist = Store.init('wishlist');
+function distinctCategories(products) {
+    let mapped = [...products.map(item => item.category)];
 
-    amountCartItems(cart);
-    amountWishListItems(wishlist);
-    
-
-    navbarToggler.addEventListener('click', function(){
-        document.querySelector('.collapse').classList.toggle('show');
-    });
-
-    
-    function distinctCategories(products) {
-        let mapped = [...products.map(item => item.category)];
-        // console.log(mapped)
-        // let distinct = [];
-        // mapped.forEach(item => {
-        //     if(!(item.id in distinct)) distinct.push(item)
-        // });
-
-        // console.log(distinct)
-        let distinct = Object.values(mapped.reduce((item, {id, name}) => {
-            let key = `${id}_${name}`;
-            item[key] = item[key] || {id, name, count:0};
-            item[key].count++;
-            return item;
-        }, {}));
-        return distinct;
-    }
+    let distinct = Object.values(mapped.reduce((item, {id, name}) => {
+        let key = `${id}_${name}`;
+        item[key] = item[key] || {id, name, count:0};
+        item[key].count++;
+        return item;
+    }, {}));
+    return distinct;
+}
 
 
-    function categoryTemplate(category) {
-        return `
-        <li class="mb-2 d-flex justify-content-between">
-        <a class="reset-anchor category-item" href="#!" data-category="${category.name}" data-category-id="${category.id}">${category.name}</a>   
-        <span class="badge text-gray">${category.count}</span>
-        </li>
-        `;
-    }
+function categoryTemplate(category) {
+    return `
+    <li class="mb-2 d-flex justify-content-between">
+    <a class="reset-anchor category-item" href="#!" data-category="${category.name}" data-category-id="${category.id}">${category.name}</a>   
+    <span class="badge text-gray">${category.count}</span>
+    </li>
+    `;
+}
 
-    function populateCategories(categories) {
-        document.querySelector(".all-categories").textContent = categories.length;
-        let result = "";
-        categories.forEach(item => result += categoryTemplate(item));
-        return result;
-    }
+function populateCategories(categories) {
+    document.querySelector(".all-categories").textContent = categories.length;
+    let result = "";
+    categories.forEach(item => result += categoryTemplate(item));
+    return result;
+}
 
 function renderCategory(selector, products){
-    const categoriesAll = document.querySelector(".categories");
-    categoriesAll.addEventListener('click', () =>{ showCase.innerHTML = populateProductList(products)
-        addToCartButton(cart);
-        detailButton(products);
-        addToWishListButton(); 
-    });
+const categoriesAll = document.querySelector(".categories");
+categoriesAll.addEventListener('click', () =>{ showCase.innerHTML = populateProductList(products)
+    addToCartButton(cart);
+    detailButton(products);
+    addToWishListButton(); 
+});
 
-    
-    const categoryItems = document.querySelectorAll(selector);
-    categoryItems.forEach(item => item.addEventListener('click', e => {
-        e.preventDefault();
 
-        if (e.target.classList.contains('category-item')) {
-            const category = e.target.dataset.category;
-            const categoryFilter = items => items.filter(item => item.category.name.includes(category));
-            showCase.innerHTML = populateProductList(categoryFilter(products));
+const categoryItems = document.querySelectorAll(selector);
+categoryItems.forEach(item => item.addEventListener('click', e => {
+    e.preventDefault();
 
-        }else{
-            showCase.innerHTML = populateProductList(products);
-        }
-        addToCartButton(cart);
-        detailButton(products);
-        addToWishListButton(); 
-    })) 
-    
+    if (e.target.classList.contains('category-item')) {
+        const category = e.target.dataset.category;
+        const categoryFilter = items => items.filter(item => item.category.name.includes(category));
+        showCase.innerHTML = populateProductList(categoryFilter(products));
+
+    }else{
+        showCase.innerHTML = populateProductList(products);
+    }
+    addToCartButton(cart);
+    detailButton(products);
+    addToWishListButton(); 
+})) 
+
 }
 
 const carouselItemTemolate = data => `<div class="slide carousel-item">
@@ -416,23 +396,106 @@ const carouselItemTemolate = data => `<div class="slide carousel-item">
 </div>`;
 
 function makeCarousel(items) {
-    let res = "";
-    items.forEach(item => res += carouselItemTemolate(item));
-    res += res;
-    document.querySelector('.slide-track').innerHTML = res;
+let res = "";
+items.forEach(item => res += carouselItemTemolate(item));
+res += res;
+document.querySelector('.slide-track').innerHTML = res;
 }
+// =======================================================
 
 
-if (document.querySelector(".carousel")) {
-    let distingCategoryItems = distinctCategories(products);
-    makeCarousel(distingCategoryItems);
-    renderCategory('.carousel-item', products);
+// =======================================================
+document.addEventListener("DOMContentLoaded", () => {
+    cart = Store.init('basket');
 
-}
-    // console.log('products', products);
+    wishlist = Store.init('wishlist');
+    amountCartItems(cart);
+    amountWishListItems(wishlist);
+    navbarToggler.addEventListener('click', function(){
+        document.querySelector('.collapse').classList.toggle('show');
+    });
+
+    if (document.querySelector(".carousel")) {
+        let distingCategoryItems = distinctCategories(products);
+        makeCarousel(distingCategoryItems);
+        renderCategory('.carousel-item', products);
+
+    }
+
+    const showOnly = document.querySelector(".show-only");
+    if (showOnly) {
+        // let badges = [...products.map(item => item.badge.title)];
+        // badges = badges.filter(item => item != "")
+        // console.log([...new Set(badges)])
+
+        let badges = [...new Set([...products.map(item => item.badge.title)].filter(item => item != ''))];
+        // console.log(badges)
+
+        showOnly.innerHTML = badges.map(item => `<div class="form-check mb-1">
+        <input class="form-check-input" type="checkbox" id="id-${item}" value="${item}" name="badge">
+        <label class="form-check-label" for="id-${item}">${item}</label>
+      </div>`).join(" ");
+
+      let checkboxes = document.querySelectorAll('input[name="badge"]')
+    //   console.log(checkboxes)
+    let values = [];
+    checkboxes.forEach(item => {
+        item.addEventListener("change", e => {
+            if (e.target.checked) {
+                values.push(item.value)
+                console.log(values);
+                showCase.innerHTML = values.map(value => populateProductList(products.filter(product => product.badge.title.includes(value)))).join("");
+            }else {
+                if (values.length != 0) {
+                    values.pop(item.value)
+                    showCase.innerHTML = values.map(value => populateProductList(products.filter(product => product.badge.title.includes(value)))).join("");
+                }
+            }
+            if (values.length == 0)
+            showCase.innerHTML = populateProductList(products);
+        })
+    })
+    }
     if(showCase) {
-        
-       
+
+        const selectPicker = document.querySelector('.selectpicker');
+        const sortingOrders = [
+            {k: "default", v: "Default Sorting"},
+            {k: "popularity", v: "Popularity Product"},
+            {k: "low-high", v: "Low To High Price"},
+            {k: "high-low", v: "High To Low Price"},
+        ]
+
+        selectPicker.innerHTML = sortingOrders.map(item => `<option value="${item.k}">${item.v}</option>`).join(" ");
+
+
+        let compare = (key, order='asc') => (a, b) => {
+            if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
+            const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+            const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key]
+
+            let comparison = 0;
+            comparison = (A > B) ? 1 : -1;
+            return (order === 'desc') ? -comparison : comparison;
+        }
+
+
+        selectPicker.addEventListener('change' , function() {
+            switch(this.value){
+                case 'low-high':
+                    showCase.innerHTML = populateProductList(products.sort(compare('price', 'asc')));
+                    break;
+                case 'high-low':
+                    showCase.innerHTML = populateProductList(products.sort(compare('price', 'desc')));
+                    break;
+                case 'popularity':
+                    showCase.innerHTML = populateProductList(products.sort(compare('stars', 'desc')));
+                    break;
+                default: 
+                    showCase.innerHTML = populateProductList(products.sort(compare('id', 'asc')));
+            }
+        })
+
         showCase.innerHTML = populateProductList(products);
 
         addToCartButton(cart);
