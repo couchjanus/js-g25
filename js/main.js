@@ -390,7 +390,7 @@ categoryItems.forEach(item => item.addEventListener('click', e => {
 
 const carouselItemTemolate = data => `<div class="slide carousel-item">
 <a class="category-item" href="#!" data-category="${data.name}">
-<img src="images/0${data.id}.jpg" alt="" />
+<img src="https://couchjanus.github.io/images/product-${data.id}.jpg" alt="" />
 <strong class="category-item category-item-title" data-category="${data.name}">${data.name}</strong>
 </a>
 </div>`;
@@ -403,115 +403,149 @@ document.querySelector('.slide-track').innerHTML = res;
 }
 // =======================================================
 
+let currentProducts = [];
+
+const filteredCurrentProducts = (value) => {
+    currentProducts = products.filter(product => product.badge.title.includes(value));
+    return currentProducts;
+}
+
+function fetchProducts(url) {
+    return fetch(url, {
+        method: 'GET',
+        headers: {'Content-Type': 'application/json'}
+    })
+    .then(response => {
+        if(response.status >= 400){
+            return response.json().then(err => {
+                const error = new Error('Something went wrong')
+                error.data = MediaError
+                throw error
+            })
+        }
+        return response.json();
+    })
+}
 
 // =======================================================
 document.addEventListener("DOMContentLoaded", () => {
-    cart = Store.init('basket');
 
-    wishlist = Store.init('wishlist');
-    amountCartItems(cart);
-    amountWishListItems(wishlist);
     navbarToggler.addEventListener('click', function(){
         document.querySelector('.collapse').classList.toggle('show');
     });
 
-    if (document.querySelector(".carousel")) {
-        let distingCategoryItems = distinctCategories(products);
-        makeCarousel(distingCategoryItems);
-        renderCategory('.carousel-item', products);
+    fetchProducts('https://my-json-server.typicode.com/couchjanus/db/products')
+    .then(products => {
+        console.log(products)
+        cart = Store.init('basket');
+        wishlist = Store.init('wishlist');
+        amountCartItems(cart);
+        amountWishListItems(wishlist);
+    
+        if (document.querySelector(".carousel")) {
+            let distingCategoryItems = distinctCategories(products);
+            makeCarousel(distingCategoryItems);
+            renderCategory('.carousel-item', products);
 
-    }
+        }
+        currentProducts = products;
 
-    const showOnly = document.querySelector(".show-only");
-    if (showOnly) {
-        // let badges = [...products.map(item => item.badge.title)];
-        // badges = badges.filter(item => item != "")
-        // console.log([...new Set(badges)])
+        const showOnly = document.querySelector(".show-only");
+        if (showOnly) {
+            // let badges = [...products.map(item => item.badge.title)];
+            // badges = badges.filter(item => item != "")
+            // console.log([...new Set(badges)])
 
-        let badges = [...new Set([...products.map(item => item.badge.title)].filter(item => item != ''))];
-        // console.log(badges)
+            let badges = [...new Set([...products.map(item => item.badge.title)].filter(item => item != ''))];
+            // console.log(badges)
 
-        showOnly.innerHTML = badges.map(item => `<div class="form-check mb-1">
-        <input class="form-check-input" type="checkbox" id="id-${item}" value="${item}" name="badge">
-        <label class="form-check-label" for="id-${item}">${item}</label>
-      </div>`).join(" ");
+            showOnly.innerHTML = badges.map(item => `<div class="form-check mb-1">
+            <input class="form-check-input" type="checkbox" id="id-${item}" value="${item}" name="badge">
+            <label class="form-check-label" for="id-${item}">${item}</label>
+        </div>`).join(" ");
 
-      let checkboxes = document.querySelectorAll('input[name="badge"]')
-    //   console.log(checkboxes)
-    let values = [];
-    checkboxes.forEach(item => {
-        item.addEventListener("change", e => {
-            if (e.target.checked) {
-                values.push(item.value)
-                console.log(values);
-                showCase.innerHTML = values.map(value => populateProductList(products.filter(product => product.badge.title.includes(value)))).join("");
-            }else {
-                if (values.length != 0) {
-                    values.pop(item.value)
-                    showCase.innerHTML = values.map(value => populateProductList(products.filter(product => product.badge.title.includes(value)))).join("");
+        let checkboxes = document.querySelectorAll('input[name="badge"]')
+        //   console.log(checkboxes)
+        let values = [];
+        checkboxes.forEach(item => {
+            item.addEventListener("change", e => {
+                if (e.target.checked) {
+                    values.push(item.value)
+                    console.log(values);
+                    showCase.innerHTML = values.map(value => populateProductList(filteredCurrentProducts(value))).join("");
+                }else {
+                    if (values.length != 0) {
+                        // values.pop(item.value)
+                        let index = values.indexOf(item.value);
+                        if (index !== -1) {
+                            values.splice(index, 1);
+                        }
+                        showCase.innerHTML = values.map(value => populateProductList(filteredCurrentProducts(value))).join("");
+                    }
                 }
-            }
-            if (values.length == 0)
-            showCase.innerHTML = populateProductList(products);
+                if (values.length == 0){
+                    currentProducts = products;
+                    showCase.innerHTML = populateProductList(products);
+                }
+            })
         })
-    })
-    }
-    if(showCase) {
+        }
+        if(showCase) {
 
-        const selectPicker = document.querySelector('.selectpicker');
-        const sortingOrders = [
-            {k: "default", v: "Default Sorting"},
-            {k: "popularity", v: "Popularity Product"},
-            {k: "low-high", v: "Low To High Price"},
-            {k: "high-low", v: "High To Low Price"},
-        ]
+            const selectPicker = document.querySelector('.selectpicker');
+            const sortingOrders = [
+                {k: "default", v: "Default Sorting"},
+                {k: "popularity", v: "Popularity Product"},
+                {k: "low-high", v: "Low To High Price"},
+                {k: "high-low", v: "High To Low Price"},
+            ]
 
-        selectPicker.innerHTML = sortingOrders.map(item => `<option value="${item.k}">${item.v}</option>`).join(" ");
+            selectPicker.innerHTML = sortingOrders.map(item => `<option value="${item.k}">${item.v}</option>`).join(" ");
 
 
-        let compare = (key, order='asc') => (a, b) => {
-            if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
-            const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
-            const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key]
+            let compare = (key, order='asc') => (a, b) => {
+                if (!a.hasOwnProperty(key) || !b.hasOwnProperty(key)) return 0;
+                const A = (typeof a[key] === 'string') ? a[key].toUpperCase() : a[key];
+                const B = (typeof b[key] === 'string') ? b[key].toUpperCase() : b[key]
 
-            let comparison = 0;
-            comparison = (A > B) ? 1 : -1;
-            return (order === 'desc') ? -comparison : comparison;
+                let comparison = 0;
+                comparison = (A > B) ? 1 : -1;
+                return (order === 'desc') ? -comparison : comparison;
+            }
+
+
+            selectPicker.addEventListener('change' , function() {
+                switch(this.value){
+                    case 'low-high':
+                        showCase.innerHTML = populateProductList(currentProducts.sort(compare('price', 'asc')));
+                        break;
+                    case 'high-low':
+                        showCase.innerHTML = populateProductList(currentProducts.sort(compare('price', 'desc')));
+                        break;
+                    case 'popularity':
+                        showCase.innerHTML = populateProductList(currentProducts.sort(compare('stars', 'desc')));
+                        break;
+                    default: 
+                        showCase.innerHTML = populateProductList(currentProducts.sort(compare('id', 'asc')));
+                }
+            })
+
+            showCase.innerHTML = populateProductList(products);
+
+            addToCartButton(cart);
+            detailButton(products);
+            addToWishListButton();
+        }
+        if (categoriesList) {
+            categoriesList.innerHTML = populateCategories(distinctCategories(products));
+            renderCategory(".categories-list", products);
+            
         }
 
-
-        selectPicker.addEventListener('change' , function() {
-            switch(this.value){
-                case 'low-high':
-                    showCase.innerHTML = populateProductList(products.sort(compare('price', 'asc')));
-                    break;
-                case 'high-low':
-                    showCase.innerHTML = populateProductList(products.sort(compare('price', 'desc')));
-                    break;
-                case 'popularity':
-                    showCase.innerHTML = populateProductList(products.sort(compare('stars', 'desc')));
-                    break;
-                default: 
-                    showCase.innerHTML = populateProductList(products.sort(compare('id', 'asc')));
-            }
-        })
-
-        showCase.innerHTML = populateProductList(products);
-
-        addToCartButton(cart);
-        detailButton(products);
-        addToWishListButton();
-    }
-    if (categoriesList) {
-        categoriesList.innerHTML = populateCategories(distinctCategories(products));
-        renderCategory(".categories-list", products);
-        
-    }
-
-    if (shoppingCartItems) {
-        shoppingCartItems.innerHTML = populateShoppingCart();
-        setCartTotal(cart);
-        renderCart();
-    }
-
+        if (shoppingCartItems) {
+            shoppingCartItems.innerHTML = populateShoppingCart();
+            setCartTotal(cart);
+            renderCart();
+        }
+    }); // end fetch
 });
